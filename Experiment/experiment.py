@@ -36,7 +36,7 @@ dataload= {
     2: data_load_syn_baseline
 }
 
-#experiment for synthetic data (Sec.5.1) 
+#experiment for synthetic data (Sec.V.A) 
 def experiment_Syn(args, repetition, sample_size):
     pyro.enable_validation(__debug__)
     torch.set_default_tensor_type('torch.FloatTensor')
@@ -91,7 +91,7 @@ def experiment_Syn(args, repetition, sample_size):
                 model.pretrain()
             model.train()
             
-            ''' (Sec.4.1)
+            ''' (Sec.IV.A)
             model output:
              zt_000 : representation of IVs
              zc_000 : representation of non-IVs
@@ -202,7 +202,7 @@ def experiment_Syn(args, repetition, sample_size):
 
         '''(Causal Effectt Estimation)
         After producing represenation of IVs (zt_000), 
-        Usual IV estimators are applied: 2SLS, IVGMM, Ortho, DML, Poly2SLS, KernelIV (Sec.5, Appendix B)
+        Usual IV estimators are applied: 2SLS, IVGMM, Ortho, DML, Poly2SLS, KernelIV (Sec.V)
         '''
         pyro.set_rng_seed(0)
         np.random.seed(0)
@@ -229,7 +229,7 @@ def experiment_Syn(args, repetition, sample_size):
     result.to_csv(os.path.join(data_folder,filename),index=False,float_format='%.5f')
 
 
-#experiment for ablation (Sec.5.2) 
+#experiment for ablation (Sec.V.B) 
 def experiment_Abl(args, repetition, sample_size):
     pyro.enable_validation(__debug__)
     torch.set_default_tensor_type('torch.FloatTensor')
@@ -309,7 +309,7 @@ def experiment_Abl(args, repetition, sample_size):
             print(estimates)
             
             '''
-            Sensitivity Analysis for MI regularization (Sec.5.2)
+            Sensitivity Analysis for MI regularization (Sec.V.B)
             '''
             tmp = torch.tensor(x_test).to(device)
             tmp2 = model.VaDEIV.analysis(tmp)
@@ -340,7 +340,7 @@ def experiment_Abl(args, repetition, sample_size):
     result.to_csv(os.path.join(data_folder,filename1),index=False,float_format='%.5f')
     pd.DataFrame(result_d).to_csv(os.path.join(data_folder,filename2),index=False,float_format='%.5f')
 
-# extended experiment for architecture choice  (Appendix.C) 
+# extended experiment for architecture choice  
 def experiment_Abl_vade(args, repetition, sample_size):
     pyro.enable_validation(__debug__)
     torch.set_default_tensor_type('torch.FloatTensor')
@@ -436,7 +436,7 @@ def experiment_Abl_vade(args, repetition, sample_size):
     result = pd.concat(result, axis=0)
     result.to_csv(os.path.join(data_folder,filename1),index=False,float_format='%.5f')
 
-# Experiment for Real datasets (Sec.5.3)
+# Experiment for Real datasets (Sec.V.C)
 def experiment_Real(args, repetition, target):
     pyro.enable_validation(__debug__)
     torch.set_default_tensor_type('torch.FloatTensor')
@@ -578,7 +578,7 @@ def experiment_Real(args, repetition, target):
     result.to_csv(os.path.join(data_folder,filename1),index=False,float_format='%.5f')
     
 
-# Extended Experiment for assumtion violation / dependence within D1 and D2 (Appendix. B)   
+# Extended Experiment for assumtion violation / dependence within D1 and D2  
 def experiment_Robust(args, repetition, sample_size):
     pyro.enable_validation(__debug__)
     torch.set_default_tensor_type('torch.FloatTensor')
