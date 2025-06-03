@@ -57,7 +57,7 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     if args.exp_id == 'syn':
-        # main experiment for synthetic datasets (Sec.5.1)
+        # main experiment for synthetic datasets (Sec.V.A)
         # you can choose synthetic datasets according to treatment type, dimension, response function etc. 
         
         experiment_Syn(args, args.repetition, args.sample_size)
@@ -67,14 +67,14 @@ if __name__ == "__main__":
         # extended experiments: ablation  / architecture 
         
         if args.model_id in ['novade','novade_atall']:
-            # 1. Expeirment on architecture choice (Appendix.C)
+            # 1. Expeirment on architecture choice 
             # -> model_id: novade (vae+cvae) / novade_atall (vae+vae)
             args.hyp_mi = 5
             args.use_reconst_x = True
             args.use_flex_enc = False
             experiment_Abl_vade(args, args.repetition, args.sample_size)
         else:
-            # 2. ablation (Sec.5.2)
+            # 2. ablation 
             # -> \beta for mutual information constraints (hyp_mi)
             # -> dual vs single prediction
             # -> prediction loss vs w/o prediciton loss
@@ -96,15 +96,15 @@ if __name__ == "__main__":
 
     
     if args.exp_id == 'real':
-        # experiment for real data (Sec.5.3)
+        # experiment for real data (Sec.V.C)
         experiment_Real(args, args.repetition, 'white')
     
     if args.exp_id =='robust':
-        # extended experiment for dependence within D1/D2  (Appendix.C)
+        # extended experiment for dependence within D1/D2 
         args.dependency = 'within'
         experiment_Robust(args, args.repetition, args.sample_size)
         
-        # extended experiment for assumption violation (Appendix.C)
+        # extended experiment for assumption violation 
         args.interaction = 'interaction'
         experiment_Robust(args, args.repetition, args.sample_size)
         
