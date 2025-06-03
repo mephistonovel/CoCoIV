@@ -1,7 +1,7 @@
 model="ours"
 size=5000
 
-# binary treatment Real-dataset (401k) (Sec.5.3)
+# binary treatment Real-dataset (401k) 
 python main.py \
     --feature-dim 6 \
     --latent-dim 2 \
