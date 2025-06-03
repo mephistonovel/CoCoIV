@@ -455,7 +455,7 @@ class VaDEIV(torch.nn.Module):
     
     def compute_loss(self,x,t,y):
         '''
-        See Sec.4
+        See Sec.IV
         
         Computing loss with output from forward()
         L = L_elbo + alpha*L_pred + beta*L_MI
