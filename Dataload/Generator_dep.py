@@ -14,7 +14,7 @@ class Generator():
     
     def generate_synthetic(self, n_samples, dim_D1, dim_D2, dim_Z, dim_C, treatment_type, response_func, within_dependency=False, interaction=False, random=False, true_effect = 3):
         '''
-        See Appendix.B
+        See Sec.V.A
         low-dimensional synthetic dataset generation
         '''
         # random seed
@@ -210,64 +210,11 @@ class Generator():
 
         return 0
         
-    def generate_dataset_DVAECIV(self, n_samples, random=False):
-        '''
-        See Appendix.C and Original Paper DVAE.CIV (Cheng et al., 2023)
-        Generation of baseline datset of DVAE.CIV
-        '''
-        if not random:
-            np.random.seed(0)
-
-        U = np.random.normal(0, 1, n_samples)
-        U1 = np.random.normal(0, 1, n_samples)
-        U2 = np.random.normal(0, 1, n_samples)
-        U3 = np.random.normal(0, 1, n_samples)
-        U4 = np.random.normal(0, 1, n_samples)
-        e_y = np.random.normal(0, 1, n_samples)
-        e1 = np.random.normal(0, np.sqrt(0.5), n_samples)
-        e2 = np.random.normal(0, np.sqrt(0.5), n_samples)
-        e3 = np.random.normal(0, np.sqrt(0.5), n_samples)
-        e_s = np.random.normal(0, 0.5, n_samples)
-        X1 = np.random.normal(0, 1, n_samples) + 0.5 * U2 + e1
-        X2 = np.random.normal(0, 1, n_samples) + 0.5 * U3 + e2
-        X3 = np.random.normal(0, 1, n_samples) + 0.5 * U4 + e3
-        Z = np.random.normal(0, 1, n_samples) + 2 * U1 + 1.5 * X1 + 1.5 * X2 + e_s
-        X4 = np.random.normal(1, 1, n_samples)
-        X5 = np.random.normal(3, 1, n_samples)
-
-        p_x = np.exp(1- U - U1 - X3 - X4)
-        p_x = 1 / (1 + p_x)
-        X = np.int64(p_x> 0.5)
-
-
-        true_effect= 2 
-        Y = 2 + true_effect * X + 2 * U + 2 * U3 + 2 * U4 + X4 + X5 + e_y
-
-
-        data = pd.DataFrame({'X0':Z,'X1': X1, 'X2': X2, 'X3': X3, 'X4': X4, 'X5': X5, 'W': X, 'Y': Y})
-        data = data.sample(frac=1).reset_index(drop=True)
-
-        # dataset split
-        split_ratio = 0.7
-        split_index = int(len(data) * split_ratio)
-
-        data1 = data[:split_index]
-        data2 = data[split_index:]
-
-        data_folder = f'./Data/Syn_DVAECIV_{n_samples}'
-        if not os.path.exists(data_folder):
-            os.makedirs(data_folder)
-
-        # train/ test saved
-        csv_filename1 = f'Syn_DVAECIV_train{n_samples}_b_{true_effect}.csv'
-        csv_filename2 = f'Syn_DVAECIV_test{n_samples}_b_{true_effect}.csv'
-        data1.to_csv(os.path.join(data_folder, csv_filename1), index=False)
-        data2.to_csv(os.path.join(data_folder, csv_filename2), index=False)
-        return 0
+    
     
     def generate_synthetic_highdim(self, n_samples, dim_D2, dim_C, treatment_type, response_func, random=False, true_effect = 3):
         '''
-        See Appendix.B
+        See Sec.V.A
         high-dimensional synthetic dataset generation with MNIST
         '''
         
@@ -376,7 +323,60 @@ class Generator():
     def generate_dataset_real():
         pass
 
+    def generate_dataset_DVAECIV(self, n_samples, random=False):
+        '''
+        See Original Paper DVAE.CIV (Cheng et al., 2023)
+        Generation of baseline datset of DVAE.CIV
+        '''
+        if not random:
+            np.random.seed(0)
 
+        U = np.random.normal(0, 1, n_samples)
+        U1 = np.random.normal(0, 1, n_samples)
+        U2 = np.random.normal(0, 1, n_samples)
+        U3 = np.random.normal(0, 1, n_samples)
+        U4 = np.random.normal(0, 1, n_samples)
+        e_y = np.random.normal(0, 1, n_samples)
+        e1 = np.random.normal(0, np.sqrt(0.5), n_samples)
+        e2 = np.random.normal(0, np.sqrt(0.5), n_samples)
+        e3 = np.random.normal(0, np.sqrt(0.5), n_samples)
+        e_s = np.random.normal(0, 0.5, n_samples)
+        X1 = np.random.normal(0, 1, n_samples) + 0.5 * U2 + e1
+        X2 = np.random.normal(0, 1, n_samples) + 0.5 * U3 + e2
+        X3 = np.random.normal(0, 1, n_samples) + 0.5 * U4 + e3
+        Z = np.random.normal(0, 1, n_samples) + 2 * U1 + 1.5 * X1 + 1.5 * X2 + e_s
+        X4 = np.random.normal(1, 1, n_samples)
+        X5 = np.random.normal(3, 1, n_samples)
+
+        p_x = np.exp(1- U - U1 - X3 - X4)
+        p_x = 1 / (1 + p_x)
+        X = np.int64(p_x> 0.5)
+
+
+        true_effect= 2 
+        Y = 2 + true_effect * X + 2 * U + 2 * U3 + 2 * U4 + X4 + X5 + e_y
+
+
+        data = pd.DataFrame({'X0':Z,'X1': X1, 'X2': X2, 'X3': X3, 'X4': X4, 'X5': X5, 'W': X, 'Y': Y})
+        data = data.sample(frac=1).reset_index(drop=True)
+
+        # dataset split
+        split_ratio = 0.7
+        split_index = int(len(data) * split_ratio)
+
+        data1 = data[:split_index]
+        data2 = data[split_index:]
+
+        data_folder = f'./Data/Syn_DVAECIV_{n_samples}'
+        if not os.path.exists(data_folder):
+            os.makedirs(data_folder)
+
+        # train/ test saved
+        csv_filename1 = f'Syn_DVAECIV_train{n_samples}_b_{true_effect}.csv'
+        csv_filename2 = f'Syn_DVAECIV_test{n_samples}_b_{true_effect}.csv'
+        data1.to_csv(os.path.join(data_folder, csv_filename1), index=False)
+        data2.to_csv(os.path.join(data_folder, csv_filename2), index=False)
+        return 0
 
 
 if __name__ == "__main__":
