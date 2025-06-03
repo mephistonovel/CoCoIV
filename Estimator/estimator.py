@@ -10,7 +10,7 @@ from linearmodels.iv import IV2SLS,IVGMM
 import pandas as pd
 import numpy as np
 
-'''IV-based Estimators (See Sec.5, Appendix.B)'''
+'''IV-based Estimators (See Sec.V)'''
 
 Est = {
     'tsls': IV2SLS,
