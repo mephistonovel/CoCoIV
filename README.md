@@ -1,7 +1,7 @@
 # CoCoIV: Instrumental Variable Representation Learning with Confounded Covariates
 
 ## Description
-This repository provides reproduction guidelines for the paper *CoCoIV: Instrumental Variable Representation Learning with Confounded Covariates*. It contains the source codes used in our empirical evaluations. We hope you find it valuable.
+This repository provides reproduction guidelines for the paper *Towards Instrumental Variable Representation Learning under Confounded Covariates*. It contains the source codes used in our empirical evaluations. We hope you find it valuable.
 
 The main implementation of our model can be found in `Models/ours.py`.
 The implementation of exploited variational encoders and decoders is based on:
