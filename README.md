@@ -13,9 +13,9 @@ with modifications suitable for our architecture.
 ## Installation & Running
 To get started, you may follow these instructions.
 
-1. Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions.
+1. Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
     ```bash
-    pip3 install -r iv_rep_package.txt
+    conda env create -f iv_rep.yml
     ```
 
 2. Once the environment is set up, you can either execute scripts to run the complete process 
