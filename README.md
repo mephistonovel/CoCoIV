@@ -1,4 +1,4 @@
-# CoCoIV: Instrumental Variable Representation Learning with Confounded Covariates
+# CoCoIV: Towards Instrumental Variable Representation Learning under Confounded Covariates
 
 ## Description
 This repository provides reproduction guidelines for the paper *Towards Instrumental Variable Representation Learning under Confounded Covariates*. It contains the source codes used in our empirical evaluations. We hope you find it valuable.
