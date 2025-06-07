@@ -57,7 +57,7 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     if args.exp_id == 'syn':
-        # main experiment for synthetic datasets (Sec.V.A)
+        # main experiment for synthetic datasets 
         # you can choose synthetic datasets according to treatment type, dimension, response function etc. 
         
         experiment_Syn(args, args.repetition, args.sample_size)
@@ -96,13 +96,10 @@ if __name__ == "__main__":
 
     
     if args.exp_id == 'real':
-        # experiment for real data (Sec.V.C)
+        # experiment for real data 
         experiment_Real(args, args.repetition, 'white')
     
     if args.exp_id =='robust':
-        # extended experiment for dependence within D1/D2 
-        args.dependency = 'within'
-        experiment_Robust(args, args.repetition, args.sample_size)
         
         # extended experiment for assumption violation 
         args.interaction = 'interaction'
