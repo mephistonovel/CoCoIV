@@ -193,7 +193,7 @@ class VaDEIV(torch.nn.Module):
         self.treatment_type = treatment_type
         self.hidden_dim = hidden_dim
         
-        ### dual prediction network (Sec.IV.A, Sec.IV.B) ### 
+        ### dual prediction network (Sec.IV) ### 
         self.use_dist_net = use_dist_net
         self.use_reg_net = use_reg_net  
         ##################################################
