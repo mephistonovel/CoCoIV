@@ -37,6 +37,7 @@ We provide trained models for each experimental configuration in `./weights `. E
 ```bash
 bash experiment_test.sh
 ```
+Be sure that if you once train the model, the saved weights will be overwritten. Therefore, if you want to preserve the existing weights, we recommend saving them in a different directory.
 
 ## Details of Running Scripts
 If you want to run experiments with personal settings, you may use the following command:
