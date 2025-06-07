@@ -124,7 +124,7 @@ def experiment_Syn(args, repetition, sample_size):
         os.mkdir(data_folder)
 
   
-    filename = f'TEST_{args.model_id}_{args.treatment}_Syn_{syn_dim}_{args.response}_miw{args.hyp_mi}_{args.sample_size}_hid{args.hidden_dim}.csv'
+    filename = f'TEST_{args.model_id}_{args.treatment}_Syn_{syn_dim}_{args.response}.csv'
     result = pd.concat(result, axis=0)
     result.to_csv(os.path.join(data_folder,filename),index=False,float_format='%.5f')
 
