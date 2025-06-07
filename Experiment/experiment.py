@@ -646,7 +646,7 @@ def experiment_Robust(args, repetition, sample_size):
             y_test = y_test.cpu().detach().numpy().astype(np.float16)
             x_test = x_test.cpu().detach().numpy().astype(np.float16)
             
-            rep_folder = f'./Result/Reps/Syn/Robust'
+            rep_folder = f'./Result/Reps/Robust'
             
             if not os.path.exists(rep_folder):
                 os.mkdir(rep_folder) 
