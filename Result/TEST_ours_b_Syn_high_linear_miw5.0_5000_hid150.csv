@@ -1,2 +1,0 @@
-tsls_train_MAE,tsls_test_MAE,IVGMM_train_MAE,IVGMM_test_MAE,DML_train_MAE,DML_test_MAE,Ortho_train_MAE,Ortho_test_MAE,Poly_tsls_train_MAE,Poly_tsls_test_MAE,KernelIV_train_MAE,KernelIV_test_MAE
-0.01071,0.05124,0.01648,0.03247,0.08123,0.32339,0.48858,0.08845,0.18460,0.21888,0.66976,0.11646
