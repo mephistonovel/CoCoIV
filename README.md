@@ -14,7 +14,7 @@ with modifications suitable for our architecture.
 To get started, you may follow these instructions.
 
 ### Create envrironment
-Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
+Create a new virtual environment by using `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
 ```bash
 conda env create -f iv_rep.yaml
 ```
