@@ -1,4 +1,3 @@
-model="ours"
 size=5000
 
 # binary treatment Real-dataset (401k) 
@@ -10,7 +9,7 @@ python main.py \
     --treatment b \
     --comp-num-zc 2 \
     --hyp_mi 5 \
-    --model_id $model \
+    --model_id "oursv2" \
     --response linear \
     --repetition 20\
     --exp_id real
@@ -24,7 +23,7 @@ python main.py \
     --treatment con \
     --comp-num-zc 2 \
     --hyp_mi 5 \
-    --model_id $model \
+    --model_id "ours" \
     --response linear \
     --repetition 20 \
     --exp_id real
