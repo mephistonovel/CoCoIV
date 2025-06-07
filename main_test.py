@@ -59,14 +59,14 @@ if __name__ == "__main__":
     
     args = parser.parse_args()
     if args.exp_id == 'syn':
-        # main experiment for synthetic datasets (Sec.5.1)
+        # main experiment for synthetic datasets 
         # you can choose synthetic datasets according to treatment type, dimension, response function etc. 
         
         experiment_Syn(args, args.repetition, args.sample_size)
         
     
     if args.exp_id == 'real':
-        # experiment for real data (Sec.5.3)
+        # experiment for real data 
         experiment_Real(args, args.repetition, 'white')
 
 
