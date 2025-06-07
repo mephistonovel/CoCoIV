@@ -13,12 +13,13 @@ with modifications suitable for our architecture.
 ## Installation & Running
 To get started, you may follow these instructions.
 
-1. Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
+### Create Envrironment
+Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
     ```bash
     conda env create -f iv_rep.yaml
     ```
-
-2. Once the environment is set up, you can either execute scripts to run the complete process 
+### Training and Results
+Once the environment is set up, you can either execute scripts to run the complete process 
     e.g. Run the main experiments for synthetic datasets:
       ```bash
       bash experiment_syn.sh
@@ -28,7 +29,14 @@ To get started, you may follow these instructions.
     - Extended experiments (ablation, robustness, etc.): `experiment_extended.sh`
     - Experiments for real-world datasets: `experiment_real.sh`
 
-3. Results will be recorded in the `Result` folder.
+Results will be recorded in the `Result` folder.
+
+
+### Testing with trained models
+We provide trained models for each experimental configuration in `./weights `. Each saved model is the best one among 20 independent replications for its configuration. Thus, if you run the following commands, you can obtain 10 result files—one for each configuration (8 synthetic datasets + 2 real‐world datasets)—each containing a single row of estimator results obtained from the saved model.
+```bash
+bash experiment_test.sh
+```
 
 ## Details of Running Scripts
 If you want to run experiments with personal settings, you may use the following command:
