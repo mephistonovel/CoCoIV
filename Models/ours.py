@@ -268,7 +268,7 @@ class VaDEIV(torch.nn.Module):
 
     def encode_zc(self, x):
         '''
-        See Sec.4.1 and Fig.2
+        See Sec.IV and Fig.3
         network for q(zc|x)(= q(c|d))
         '''
         x= x.to(torch.float32)
@@ -279,7 +279,7 @@ class VaDEIV(torch.nn.Module):
     
     def encode_zt(self,x):
         '''
-        See Sec.4.1 and Fig.2
+        See Sec.IV and Fig.3
         network for q(zt|x)(= q(z|d))
         '''
         x= x.to(torch.float32)
@@ -291,7 +291,7 @@ class VaDEIV(torch.nn.Module):
     
     def prior_zt(self, x):
         '''
-        See Appendix.A
+        See Sec.IV 
         network for p(zt|x)(= p(z))
         '''
         x= x.to(torch.float32)
@@ -302,7 +302,7 @@ class VaDEIV(torch.nn.Module):
 
     def decode(self, zc,zt):
         '''
-        See Sec.4.1 and Fig.2
+        See Sec.IV and Fig.3
         network for p(x|zt,zc)(= p(d|z,c))
         '''
         zc, zt = zc.to(torch.float32),zt.to(torch.float32)
@@ -315,7 +315,7 @@ class VaDEIV(torch.nn.Module):
     
     def treatment_net(self, zc,zt):
         '''
-        See Sec.4.1 ,Fig.2, and Sec.4.2
+        See Sec.IV and Fig.3
         Dual Prediction network (1)
         network for f(t|zt,zc)(= f(x|z,c))
         '''
@@ -336,7 +336,7 @@ class VaDEIV(torch.nn.Module):
     
     def treatment(self, zt):
         '''
-        See Sec.4.1 ,Fig.2, and Sec.4.2
+        See Sec.IV and Fig.3
         Dual Prediction network (2)
         network for p(t|zt,zc)(= p(x|z))
         '''
@@ -353,7 +353,7 @@ class VaDEIV(torch.nn.Module):
     
     def outcome(self, t,zc,):
         '''
-        See Sec.4.1 ,Fig.2
+        See Sec.IV and Fig.3
         outcome network for f(y|zt,zc)(= f(y|z,c))
         '''
         t, zc = t.to(torch.float32),zc.to(torch.float32)
@@ -390,7 +390,7 @@ class VaDEIV(torch.nn.Module):
         
     def analysis(self, x):
         '''
-        See Sec.5.2, quality of representation Z
+        See Sec.V-C, quality of representation Z
         Sensitivity analysis for zt (z)
         '''
         x = x.to(torch.float32).requires_grad_(True)
@@ -414,7 +414,7 @@ class VaDEIV(torch.nn.Module):
         return mu + eps * std
 
     def forward(self, x,t,y):
-        ''' See Sec.4.1 (Algorithm1)
+        ''' See Sec.IV (Algorithm1)
         x = [batch_size, feature_dim]: covariates (D)
         t = [batch_size] : treatment (X)
         y = [batch_size] : outcome (Y)
