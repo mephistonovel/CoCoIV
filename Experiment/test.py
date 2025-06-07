@@ -182,7 +182,7 @@ def experiment_Real(args, repetition, target):
     print(estimates)
     result.append(estimates)
 
-    data_folder = f'./Result/Real'
+    data_folder = f'./Result'
     if not os.path.exists(data_folder):
         os.mkdir(data_folder)
     filename1 = f'TEST_{args.model_id}_{args.treatment}_Real_{target}_miw{args.hyp_mi}.csv'
