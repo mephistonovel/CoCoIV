@@ -33,7 +33,7 @@ Results will be recorded in the `Result` folder.
 
 
 ### Testing with the trained models
-We provide trained models for each experimental configuration in `./weights `. Each saved model is the best one among 20 independent replications for its configuration. Thus, if you run the following commands, you can obtain 10 result files—one for each configuration (8 synthetic datasets + 2 real‐world datasets)—each containing a single row of estimator results obtained from the saved model (e.g. `TEST_ours_{treatment_type}_Syn_{dimension type}_{response function type}.csv`)
+We provide trained models for each experimental configuration in `./weights `. Each saved model is the best one based on training loss among 20 independent replications for its configuration. Thus, if you run the following commands, you can obtain 10 result files—one for each configuration (8 synthetic datasets + 2 real‐world datasets)—each containing a single row of estimator results obtained from the saved model (e.g. `TEST_ours_{treatment_type}_Syn_{dimension type}_{response function type}.csv`)
 ```bash
 bash experiment_test.sh
 ```
