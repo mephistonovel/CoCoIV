@@ -15,19 +15,19 @@ To get started, you may follow these instructions.
 
 ### Create Envrironment
 Create a new virtual environment by using either `iv_rep_package.txt` or `iv_rep.yaml`. Please use Python 3.9.18 since we did not test other versions. If you execute the command below, environment named 'iv' will be generated.
-    ```bash
-    conda env create -f iv_rep.yaml
-    ```
+```bash
+conda env create -f iv_rep.yaml
+```
 ### Training and Results
 Once the environment is set up, you can either execute scripts to run the complete process 
     e.g. Run the main experiments for synthetic datasets:
-      ```bash
-      bash experiment_syn.sh
-      ```
-    Here are the objectives for each script:
-    - Experiments for synthetic datasets: `experiment_syn.sh`
-    - Extended experiments (ablation, robustness, etc.): `experiment_extended.sh`
-    - Experiments for real-world datasets: `experiment_real.sh`
+  ```bash
+  bash experiment_syn.sh
+  ```
+Here are the objectives for each script:
+- Experiments for synthetic datasets: `experiment_syn.sh`
+- Extended experiments (ablation, robustness, etc.): `experiment_extended.sh`
+- Experiments for real-world datasets: `experiment_real.sh`
 
 Results will be recorded in the `Result` folder.
 
