@@ -185,7 +185,7 @@ def experiment_Real(args, repetition, target):
     data_folder = f'./Result'
     if not os.path.exists(data_folder):
         os.mkdir(data_folder)
-    filename1 = f'TEST_{args.model_id}_{args.treatment}_Real_{target}_miw{args.hyp_mi}.csv'
+    filename1 = f'TEST_{args.model_id}_{args.treatment}_Real.csv'
     result = pd.concat(result, axis=0)
     result.to_csv(os.path.join(data_folder,filename1),index=False,float_format='%.5f')
     
