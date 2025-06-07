@@ -58,5 +58,3 @@ Variations of our architecture are available in:
 - `Models/ours_vade.py` (VaDEs for encoders of Z, C)
 - `Models/no_vade_at_all.py` (VAEs for encoders of Z, C)
 
-You can refer to Appendix.C in the paper for more details. 
-
