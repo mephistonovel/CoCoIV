@@ -163,6 +163,18 @@ class Ours:
                 early_stop_counter+=1 
             else:
                 best_loss = total_loss
+                early_stop_counter = 0  
+                # Save best model
+                if self.args.highdim:
+                    syn_dim = 'high'
+                else:
+                    syn_dim = 'low'
+                if self.args.exp_id == 'syn':
+                    model_path = f'./weights/best_model_{self.args.treatment}_syn_{syn_dim}_{self.args.response}.pth'
+                else:
+                    model_path = f'./weights/best_model_{self.args.treatment}_{epoch}_real.pth'
+                torch.save(self.VaDEIV.state_dict(), model_path)
+                print(f'Best model saved to {model_path}')
             
             if early_stop_counter>=early_stopping_epochs:
                 print('early stopping!')
